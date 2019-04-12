@@ -24,6 +24,7 @@ class Job < ApplicationRecord
         class_name: :Truck
 
     def find_truck
-
+        time_being_used = (self.start_time .. self.end_time).to_a
+        self.turuck_id = Truck.where.not(id: Jobs.where(start_time: time_being_used).pluck(:truck_id)).pluck(:id).first
     end
 end
