@@ -13,10 +13,17 @@
 #
 
 class Job < ApplicationRecord
-    validates :truck_id, :name_of_user, :date_of_move, :start_time, :est_end_time, presence: true
+    validates :name_of_user, :date_of_move, :start_time, :est_end_time, presence: true
+    validates :truck_id, presence: {message: "No truck avalible for that time. Please pick another time."}
+
+    before_validation :find_truck
 
     belongs_to :truck,
         primary_key: :id,
         foreign_key: :truck_id,
         class_name: :Truck
+
+    def find_truck
+
+    end
 end
