@@ -13,4 +13,10 @@
 #
 
 class Job < ApplicationRecord
+    validates :truck_id, :name_of_user, :date_of_move, :start_time, :est_end_time, presence: true
+
+    belongs_to :truck,
+        primary_key: :id,
+        foreign_key: :truck_id,
+        class_name: :Truck
 end
