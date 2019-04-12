@@ -29,5 +29,18 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+# en:
+#   hello: "Hello world"
+
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      job:
+        truck_id: ""
+    errors:
+      models:
+        job:
+          attributes:
+            truck_id:
+              blank: No truck avalible for that time. Please pick another time.
+
