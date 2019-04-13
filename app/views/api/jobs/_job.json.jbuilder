@@ -1,0 +1,1 @@
+json.extract! job, :id, :truck_id, :name_of_user, :date_of_move, :start_time, :est_end_time
