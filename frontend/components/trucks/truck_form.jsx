@@ -1,4 +1,5 @@
 import React from 'react';
+import TimeInput from '../time/time_input';
 
 class TruckForm extends React.Component {
 
@@ -8,6 +9,7 @@ class TruckForm extends React.Component {
         this.state = props.truck;
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.update = this.update.bind(this);
     }
 
     handleSubmit(e) {
@@ -30,6 +32,7 @@ class TruckForm extends React.Component {
     update(field) {
 
         return (e) => {
+            console.log(e.target.value, field);
             this.setState({[field]: e.target.value});
         };
     }
@@ -44,42 +47,7 @@ class TruckForm extends React.Component {
                         onChange={this.update('name')} 
                         value={this.state.name}
                         required/>
-                    <select name="Start Time" onChange={this.update('start_hour')}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
-                    <select name="suffix" onChange={this.update('start_suffix')}>
-                        <option value="am">am</option>
-                        <option value="pm">pm</option>
-                    </select>
-                    <select name="End Time" onChange={this.update('end_hour')}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
-                    <select name="suffix" onChange={this.update('end_suffix')}>
-                        <option value="am">am</option>
-                        <option value="pm">pm</option>
-                    </select>
+                    <TimeInput update={this.update}/>
                     <input type="submit" value='Create Truck'/>
                 </form>
             </div>
