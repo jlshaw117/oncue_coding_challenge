@@ -6,9 +6,9 @@ const mapStateToProps = state => {
     return ({
         truck: {
             name: '',
-            start_hour: '',
+            start_hour: '1',
             start_suffix: 'am',
-            end_hour: '',
+            end_hour: '1',
             end_suffix: 'am'
         }
     });
