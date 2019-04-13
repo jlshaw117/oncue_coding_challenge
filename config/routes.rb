@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :trucks, only: [:create, :index]
     resources :jobs, only: [:create, :index]
   end
+
+  root 'static_pages#root'
   
 end
