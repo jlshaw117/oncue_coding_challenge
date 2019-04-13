@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
 import TruckIndex from './trucks_index';
-import fetchTrucks from '../../actions/truck_actions';
-import fetchJobs from '../../actions/job_actions';
+import {fetchTrucks} from '../../actions/truck_actions';
+import {fetchJobs} from '../../actions/job_actions';
 
 const mapStateToProps = ({entities}) => {
     let trucks = Object.values(entities.trucks);
-    let jobs = Object.values(entities.jobs);
+    let jobs = entities.jobs;
     return ({
         trucks,
         jobs
@@ -15,8 +15,8 @@ const mapStateToProps = ({entities}) => {
 const mapDispatchToProps = (dispatch) => {
     
     return ({
-        fetchTrucks: () => dispatch(fetchTrucks),
-        fetchJobs: () => dispatch(fetchJobs)
+        fetchTrucks: () => dispatch(fetchTrucks()),
+        fetchJobs: () => dispatch(fetchJobs())
     });
      
 };
