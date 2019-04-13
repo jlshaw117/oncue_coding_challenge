@@ -28,8 +28,7 @@ class JobForm extends React.Component {
         } else {
             job.est_end_time = parseInt(this.state.end_hour);
         }
-        console.log(job);
-        this.props.createJob(job).then(() => this.props.history.push('/'));
+        this.props.createJob(job).then(() => this.props.history.push('/trucks'));
     }
 
     update(field) {
@@ -43,25 +42,27 @@ class JobForm extends React.Component {
 
         const errorMessage = () => {
             return (
-                <span>{this.props.errors[0]}</span>
+                <div className='error-message'>{this.props.errors[0]}</div>
             )
         };
 
         return (
-            <div>
-                {this.props.errors.length ? errorMessage() : <span></span>}
+            <div className='job-form-wrapper'>
                 <form onSubmit={this.handleSubmit}>
+                    <h2>Create A New Job</h2>
+                    {this.props.errors.length ? errorMessage() : <span></span>}
+                    <label>Name</label>
                     <input type="text"
                         placeholder='User name'
                         value={this.state.name_of_user}
                         onChange={this.update('name_of_user')}
                         required/>
+                    <label>Date Of Move</label>
                     <input type="date"
                         onChange={this.update('date_of_move')}
                         required/>
                     <TimeInput update={this.update} />
-                    <input type="submit"
-                        value='Create Job'/>
+                    <button type="submit">Create Job</button>
                 </form>
             </div>
         )
