@@ -2,6 +2,7 @@ class Api::JobsController < ApplicationController
 
     def create
         @job = Job.new(job_params)
+        @job.find_truck
         if @job.save
             render json: "Job created"
         else
