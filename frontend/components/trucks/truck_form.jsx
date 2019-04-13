@@ -41,21 +41,23 @@ class TruckForm extends React.Component {
 
         const errorMessage = () => {
             return (
-                <span>{this.props.errors[0]}</span>
+                <div className='error-message'>{this.props.errors[0]}</div>
             )
         };
 
         return (
-            <div>
-                {this.props.errors.length ? errorMessage() : <span></span>}
+            <div className='truck-form-wrapper'>
                 <form onSubmit={this.handleSubmit}>
+                <h2>Create A New Truck</h2>
+                    {this.props.errors.length ? errorMessage() : <span></span>}
+                    <label>Name Of Truck</label>
                     <input type="text" 
                         placeholder='Truck name' 
                         onChange={this.update('name')} 
                         value={this.state.name}
                         required/>
                     <TimeInput update={this.update}/>
-                    <input type="submit" value='Create Truck'/>
+                    <button type="submit">Create Truck</button>
                 </form>
             </div>
         )
