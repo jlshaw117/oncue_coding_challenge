@@ -13,10 +13,8 @@
 #
 
 class Job < ApplicationRecord
-    validates :name_of_user, :date_of_move, :start_time, :est_end_time, presence: true
-    validates :truck_id, presence: {message: "No truck avalible for that time. Please pick another time."}
-
-    before_validation :find_truck
+    validates :name_of_user, :date_of_move, :start_time, :est_end_time, :truck_id, presence: true
+    # validates :truck_id, presence: {message: "Fail"}
 
     belongs_to :truck,
         primary_key: :id,
@@ -24,7 +22,21 @@ class Job < ApplicationRecord
         class_name: :Truck
 
     def find_truck
-        time_being_used = (self.start_time .. self.end_time).to_a
-        self.turuck_id = Truck.where.not(id: Jobs.where(start_time: time_being_used).pluck(:truck_id)).pluck(:id).first
+        job_table = Job.arel_table
+        truck_table = Truck.arel_table
+        time_range = (self.start_time .. self.est_end_time)
+        self.truck_id = Truck.where(id: Truck.where.not(id: Job.where(
+            job_table[:date_of_move].eq(self.date_of_move)
+            .and(
+                job_table[:start_time].in(self.start_time .. self.est_end_time)
+                .or(job_table[:est_end_time].in(self.start_time .. self.est_end_time))
+                )
+            .or(
+                job_table[:start_time].lteq(self.start_time)
+                .and(job_table[:est_end_time].gteq(self.est_end_time))
+            )).pluck(:truck_id)))
+            .where(truck_table[:truck_start].lteq(self.start_time)
+            .and(truck_table[:truck_end].gteq(self.est_end_time))
+            ).pluck(:id).first
     end
 end
