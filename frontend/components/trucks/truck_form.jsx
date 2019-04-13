@@ -16,13 +16,27 @@ class TruckForm extends React.Component {
         e.preventDefault();
         let truck = {};
         truck.name = this.state.name;
-        if (this.state.start_suffix === 'pm') {
+        // if (this.state.start_suffix === 'pm') {
+        //     truck.truck_start = parseInt(this.state.start_hour) + 12;
+        // } else {
+        //     truck.truck_start = parseInt(this.state.start_hour);
+        // }
+        // if (this.state.end_suffix === 'pm') {
+        //     truck.truck_end = parseInt(this.state.end_hour) + 12;
+        // } else {
+        //     truck.truck_end = parseInt(this.state.end_hour);
+        // }
+        if (this.state.start_suffix === 'pm' && this.state.start_hour !== '12') {
+            truck.truck_start = parseInt(this.state.start_hour) + 12;
+        } else if (this.state.start_suffix === 'am' && this.state.start_hour === '12') {
             truck.truck_start = parseInt(this.state.start_hour) + 12;
         } else {
             truck.truck_start = parseInt(this.state.start_hour);
         }
-        if (this.state.end_suffix === 'pm') {
+        if (this.state.end_suffix === 'pm' && this.state.end_hour !== '12') {
             truck.truck_end = parseInt(this.state.end_hour) + 12;
+        } else if (this.state.end_suffix === 'am' && this.state.end_hour === '12') {
+            truck.truck_end = parseInt(this.state.start_hour) + 12;
         } else {
             truck.truck_end = parseInt(this.state.end_hour);
         }

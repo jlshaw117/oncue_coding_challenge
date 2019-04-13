@@ -18,13 +18,17 @@ class JobForm extends React.Component {
         let job = {};
         job.name_of_user = this.state.name_of_user;
         job.date_of_move = this.state.date_of_move;
-        if (this.state.start_suffix === 'pm') {
+        if (this.state.start_suffix === 'pm' && this.state.start_hour !== '12') {
+            job.start_time = parseInt(this.state.start_hour) + 12;
+        } else if (this.state.start_suffix === 'am' && this.state.start_hour === '12'){
             job.start_time = parseInt(this.state.start_hour) + 12;
         } else {
             job.start_time = parseInt(this.state.start_hour);
         }
-        if (this.state.end_suffix === 'pm') {
+        if (this.state.end_suffix === 'pm' && this.state.end_hour !== '12') {
             job.est_end_time = parseInt(this.state.end_hour) + 12;
+        } else if (this.state.end_suffix === 'am' && this.state.end_hour === '12') {
+            job.est_end_time = parseInt(this.state.start_hour) + 12;
         } else {
             job.est_end_time = parseInt(this.state.end_hour);
         }
