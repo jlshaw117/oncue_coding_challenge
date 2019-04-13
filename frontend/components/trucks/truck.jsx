@@ -1,8 +1,9 @@
 import React from 'react';
+import JobListItem from '../jobs/job_list_item';
 
 function Truck ({truck, jobs}) {
 
-    let jobs = truck.jobs.map((job_id, idx) => {
+    let jobsList = truck.jobs.map((job_id, idx) => {
         return (
             <li key={idx}>
                 <JobListItem job={jobs[job_id]} />
@@ -14,7 +15,7 @@ function Truck ({truck, jobs}) {
         <div className='truck-list-item'>
             <h3>{truck.name} assignments</h3>
             <ul className='jobs-list'>
-                {jobs}
+                {jobsList}
             </ul>
         </div>
     )
