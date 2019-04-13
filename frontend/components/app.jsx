@@ -2,6 +2,7 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import Header from './header/header';
 import Home from './home/home';
+import TrucksIndexContainer from './trucks/trucks_index_container';
 
 const App = () => {
 
