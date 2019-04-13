@@ -1,1 +1,1 @@
-json.extract truck, :id, :name, :truck_start, :truck_end
+json.extract! truck, :id, :name, :truck_start, :truck_end
