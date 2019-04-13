@@ -25,6 +25,7 @@ class TruckForm extends React.Component {
             truck.truck_end = parseInt(this.state.end_hour);
         }
         this.props.createTruck(truck);
+        this.props.history.push('/trucks');
     }
 
     update(field) {
