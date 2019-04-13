@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import TruckForm from './truck_form';
-import {createTruck} from '../../actions/truck_actions';
+import {createTruck, clearTruckErrors} from '../../actions/truck_actions';
 const mapStateToProps = ({errors}) => {
 
     return ({
@@ -18,7 +18,8 @@ const mapStateToProps = ({errors}) => {
 const mapDispatchToProps = dispatch => {
 
     return ({
-        createTruck: (truck) => dispatch(createTruck(truck))
+        createTruck: (truck) => dispatch(createTruck(truck)),
+        clearTruckErrors: () => dispatch(clearTruckErrors())
     });
 };
 

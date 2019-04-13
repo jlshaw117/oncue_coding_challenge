@@ -22,6 +22,11 @@ export const createJob = (job) => dispatch => {
     );
 };
 
+export const clearJobErrors = () => ({
+    type: RECEIVE_JOB_ERRORS,
+    errors: []
+});
+
 const receiveJob = (job) => {
 
     return ({

@@ -12,6 +12,10 @@ class TruckForm extends React.Component {
         this.update = this.update.bind(this);
     }
 
+    componentWillUnmount() {
+        this.props.clearTruckErrors();
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         let truck = {};

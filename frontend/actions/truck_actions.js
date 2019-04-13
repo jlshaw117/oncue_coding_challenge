@@ -22,6 +22,11 @@ export const createTruck = (truck) => dispatch => {
     );
 };
 
+export const clearTruckErrors = () => ({
+    type: RECEIVE_TRUCK_ERRORS,
+    errors: []
+});
+
 const receiveTruck = (truck) => {
 
     return ({

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import JobForm from './job_form';
-import {createJob} from '../../actions/job_actions';
+import {createJob, clearJobErrors} from '../../actions/job_actions';
 
 const mapStateToProps = ({errors}) => {
 
@@ -20,7 +20,8 @@ const mapStateToProps = ({errors}) => {
 const mapDispatchToProps = dispatch => {
 
         return ({
-            createJob: (job) => dispatch(createJob(job))
+            createJob: (job) => dispatch(createJob(job)),
+            clearJobErrors: () => dispatch(clearJobErrors())
         });
 };
 
