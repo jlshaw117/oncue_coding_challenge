@@ -5,6 +5,7 @@ const App = () => {
 
     return (
         <div>
+            <Route path='/' component={Header} />
             <Route exact path='/' component={Home} />
             <Route exact path='/trucks' component={TrucksIndexContainer} />
             <Route exact path='/trucks/new' component={TruckFormContainer}/>
