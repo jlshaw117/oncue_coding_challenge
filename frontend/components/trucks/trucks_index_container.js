@@ -13,7 +13,8 @@ const mapStateToProps = ({entities}) => {
 const mapDispatchToProps = (dispatch) => {
     
     return ({
-        fetchTrucks: () => dispatch(fetchTrucks)
+        fetchTrucks: () => dispatch(fetchTrucks),
+        fetchJobs: () => dispatch(fetchJobs)
     });
      
 };
