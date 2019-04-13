@@ -9,6 +9,11 @@ class Api::JobsController < ApplicationController
             render json: @job.errors.full_messages
         end
     end
+
+    def index
+        @jobs = Job.all
+        render :index
+    end
     
     private
 
