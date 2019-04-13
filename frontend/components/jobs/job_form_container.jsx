@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import JobForm from './job_form';
 import {createJob} from '../../actions/job_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({errors}) => {
 
     return ({
         job: {
@@ -12,7 +12,8 @@ const mapStateToProps = state => {
             start_suffix: 'am',
             end_hour: '1',
             end_suffix: 'am'
-        }
+        },
+        errors: errors.job
     });
 };
 

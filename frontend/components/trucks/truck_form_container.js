@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import TruckForm from './truck_form';
 import {createTruck} from '../../actions/truck_actions';
-const mapStateToProps = state => {
+const mapStateToProps = ({errors}) => {
 
     return ({
         truck: {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
             start_suffix: 'am',
             end_hour: '1',
             end_suffix: 'am'
-        }
+        },
+        errors: errors.truck
     });
 };
 
