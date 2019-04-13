@@ -1,4 +1,5 @@
 import React from 'react';
+import Truck from './truck';
 
 class TruckIndex extends React.Component {
 
@@ -28,3 +29,5 @@ class TruckIndex extends React.Component {
         );
     }
 }
+
+export default TruckIndex;
