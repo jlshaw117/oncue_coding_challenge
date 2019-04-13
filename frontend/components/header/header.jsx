@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 function Header() {
 
     return (
-        <div className='header-wrapper'>
+        <header>
             <nav>
-                <Link to='/' ><img src='https://www.oncue.co/wp-content/uploads/2016/10/oncue-logo_wl.png' alt='Oncue'/></Link>
+                <Link to='/' ><img className='logo' src='https://www.oncue.co/wp-content/uploads/2016/10/oncue-logo_wl.png' alt='Oncue'/></Link>
             </nav>
-            <nav>
+            <nav className='nav-links'>
                 <Link to='/trucks'>All Trucks</Link>
                 <Link to='/trucks/new' >New Truck</Link>
                 <Link to='/jobs/new' >New Job</Link>
             </nav>
-        </div>
+        </header>
     )
 }
 
