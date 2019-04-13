@@ -1,5 +1,7 @@
 import {connect} from 'react-redux';
 import TruckIndex from './trucks_index';
+import fetchTrucks from '../../actions/truck_actions';
+import fetchJobs from '../../actions/job_actions';
 
 const mapStateToProps = ({entities}) => {
     let trucks = Object.values(entities.trucks);
