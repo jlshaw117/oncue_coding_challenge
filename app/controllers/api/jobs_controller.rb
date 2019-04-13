@@ -4,9 +4,9 @@ class Api::JobsController < ApplicationController
         @job = Job.new(job_params)
         @job.find_truck
         if @job.save
-            render json: "Job created"
+            render :show
         else
-            render json: @job.errors.full_messages
+            render json: @job.errors.full_messages, status: 422
         end
     end
 
