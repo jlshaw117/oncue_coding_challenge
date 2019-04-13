@@ -1,24 +1,25 @@
-# README
+# ONCUE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Check out the [wiki](https://github.com/jlshaw117/oncue_coding_challenge/wiki) or see it [live]()
 
-Things you may want to cover:
+![home](app/assets/images/home_page.png)
 
-* Ruby version
+An app that allows a user to manage multiple trucks and jobs without worry of scheduling conflicts.
 
-* System dependencies
+## Technologies
 
-* Configuration
+* PostgresSQL for the database
+* Ruby on Rails for the backend
+* React/Redux for the frontend
+* CSS for styling
 
-* Database creation
+## Fetures
 
-* Database initialization
+### Create Truck
 
-* How to run the test suite
+A user can create a new truck with hours of operation.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Create Job
 
-* Deployment instructions
+A user can create a job that will get assigned to a truck if one is avalible during the requested time. To ensure no scheduling conflicts I used active record and Arel to compose a query that filters the trucks down to all trucks that are busy during the selected date and time. then asigns one of the trucks not on that list.
 
-* ...
