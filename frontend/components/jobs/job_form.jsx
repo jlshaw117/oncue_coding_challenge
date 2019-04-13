@@ -41,8 +41,15 @@ class JobForm extends React.Component {
 
     render() {
 
+        const errorMessage = () => {
+            return (
+                <span>{this.props.errors[0]}</span>
+            )
+        };
+
         return (
             <div>
+                {this.props.errors.length ? errorMessage() : <span></span>}
                 <form onSubmit={this.handleSubmit}>
                     <input type="text"
                         placeholder='User name'
@@ -53,42 +60,6 @@ class JobForm extends React.Component {
                         onChange={this.update('date_of_move')}
                         required/>
                     <TimeInput update={this.update} />
-                    {/* <select name="Start Time" onChange={this.update('start_hour')}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
-                    <select name="suffix" onChange={this.update('start_suffix')}>
-                        <option value="am">am</option>
-                        <option value="pm">pm</option>
-                    </select>
-                    <select name="End Time" onChange={this.update('end_hour')}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
-                    <select name="suffix" onChange={this.update('end_suffix')}>
-                        <option value="am">am</option>
-                        <option value="pm">pm</option>
-                    </select> */}
                     <input type="submit"
                         value='Create Job'/>
                 </form>

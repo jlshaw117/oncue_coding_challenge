@@ -32,15 +32,22 @@ class TruckForm extends React.Component {
     update(field) {
 
         return (e) => {
-            console.log(e.target.value, field);
             this.setState({[field]: e.target.value});
         };
     }
 
 
     render() {
+
+        const errorMessage = () => {
+            return (
+                <span>{this.props.errors[0]}</span>
+            )
+        };
+
         return (
             <div>
+                {this.props.errors.length ? errorMessage() : <span></span>}
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" 
                         placeholder='Truck name' 
