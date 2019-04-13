@@ -1,6 +1,6 @@
 # ONCUE
 
-Check out the [wiki](https://github.com/jlshaw117/oncue_coding_challenge/wiki) or see it [live]()
+Check out the [wiki](https://github.com/jlshaw117/oncue_coding_challenge/wiki) or see it [live](https://oncue-tech-challenge.herokuapp.com/#/)
 
 ![home](app/assets/images/home_page.png)
 
