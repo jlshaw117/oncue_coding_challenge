@@ -22,6 +22,12 @@ class Job < ApplicationRecord
         class_name: :Truck
 
     def find_truck
+        # Determine if a truck is avalible and if one is assign one.
+        # I filter the table down to Jobs that conflict with the current job.
+        # Then I pluck out the truck id's of the conflicting jobs and pick a truck that
+        # does not have one an id in the resulting array. If no truck exsits then
+        # the truck id of the job remains nill and will through an error when 
+        # validating the job.
         job_table = Job.arel_table
         truck_table = Truck.arel_table
         time_range = (self.start_time .. self.est_end_time)
